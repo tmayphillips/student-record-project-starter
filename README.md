@@ -31,4 +31,4 @@ https://www.digitalocean.com/community/tutorials/how-to-create-custom-types-in-t
 
 
 * Add a button that sorts the data based on Grade (ascending order)
-* Add a button that sorts teh data based on Course (ascending order)
+* Add a button that sorts the data based on Course (ascending order)

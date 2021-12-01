@@ -1,0 +1,128 @@
+body {
+    background: url(gradebook.jpeg) no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 50%;
+    top: 50%;
+    width: 300px; 
+    height: 400px; 
+    overflow: hidden; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+    border-radius: 5%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+  }
+
+  .modal input {
+      margin: 0.5em;
+      padding: 1em;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn {
+    background-color: rgba(22, 1, 1, 0.75);
+    color: white;
+    width: 150px;
+    height: 50px;
+    font: 1em 'El Messiri', sans-serif;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: rgba(229, 229, 229);
+    color: rgba(169, 169, 169);
+    box-shadow: inset 0px 0px 5px #c1c1c1;
+    outline: none;
+}
+
+.modal form {
+    justify-content: center;
+}
+
+.table-div {
+    display: none;
+}
+
+.align-table {
+    text-align: center;
+    align-items: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 90%;
+    border: 3px solid purple;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  thead th:nth-child(1) {
+    width: 40%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 15%;
+  }
+  
+  th, td {
+    padding: 20px;
+  }
+
+  thead {
+      font:900;
+      font-size: 22px;
+  }
+
+  tbody tr:nth-child(odd) {
+      background-color: rgb(211, 211, 211, 0.8);
+  }
+
+  .selection {
+      padding-bottom: 1em;
+      text-align: center;
+  }
+
+  .header {
+      text-align: center;
+      font-size: 40px
+  }

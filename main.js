@@ -1,10 +1,4 @@
 "use strict";
-/* Create a function to add student data to an array as an array of
-objects and render objects to the page
-
-Be sure your function parameters are given strict types
-
-*/
 const modal = document.getElementById('modal');
 const addGrades = document.getElementById('add-grades');
 const viewGrades = document.getElementById('view-grades');
@@ -36,8 +30,14 @@ let viewAllGrades = (data) => {
         let cellCourse = document.createElement('td');
         let cellGrade = document.createElement('td');
         let cellStatus = document.createElement('td');
+        let cellEditButton = document.createElement('td');
+        let cellRemoveButton = document.createElement('td');
         let editButton = document.createElement('input');
         let removeButton = document.createElement('input');
+        cellName.classList.add('table-font');
+        cellCourse.classList.add('table-font');
+        cellGrade.classList.add('table-font');
+        cellStatus.classList.add('table-font');
         cellName.innerHTML = `${element['lastname']}, ${element['firstname']}`;
         cellCourse.innerHTML = `${element['course']}`;
         cellGrade.innerHTML = `${element['grade']}`;
@@ -48,7 +48,7 @@ let viewAllGrades = (data) => {
             cellStatus.innerHTML = "\u274c";
         }
         editButton.type = 'button';
-        editButton.className = 'btn edit-btn';
+        editButton.className = 'btn table-btn';
         editButton.value = 'Edit';
         editButton.addEventListener('click', event => {
             console.log('edit button pressed');
@@ -66,19 +66,21 @@ let viewAllGrades = (data) => {
             localStorage.setItem('student-grades', JSON.stringify(data));
         });
         removeButton.type = 'button';
-        removeButton.className = 'btn remove-btn';
+        removeButton.className = 'btn table-btn';
         removeButton.value = 'X';
         removeButton.addEventListener('click', event => {
             row.parentNode.removeChild(row);
             data.splice(index, 1);
             localStorage.setItem('student-grades', JSON.stringify(data));
         });
+        cellEditButton.appendChild(editButton);
+        cellRemoveButton.appendChild(removeButton);
         row.appendChild(cellName);
         row.appendChild(cellCourse);
         row.appendChild(cellGrade);
         row.appendChild(cellStatus);
-        row.appendChild(editButton);
-        row.appendChild(removeButton);
+        row.appendChild(cellEditButton);
+        row.appendChild(cellRemoveButton);
         tbody.appendChild(row);
     });
 };
@@ -88,7 +90,7 @@ closeGradesBtn.addEventListener('click', event => {
 });
 submitBtn === null || submitBtn === void 0 ? void 0 : submitBtn.addEventListener('click', event => {
     event.preventDefault();
-    let firstname = document.getElementById('firstname').value;
+    let firstname = document.getElementById('firstname').value; // as HTMLInputElement
     let lastname = document.getElementById('lastname').value;
     let course = document.getElementById('course').value;
     let grade = document.getElementById('grade').value;
@@ -100,15 +102,14 @@ sortCoursesBtn.addEventListener('click', event => {
     event.preventDefault();
     console.log(data);
     data.sort(function (a, b) {
-        var nameA = a.course.toUpperCase(); // ignore upper and lowercase
-        var nameB = b.course.toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
+        var courseA = a.course.toUpperCase(); // ignore upper and lowercase
+        var courseB = b.course.toUpperCase(); // ignore upper and lowercase
+        if (courseA < courseB) {
             return -1;
         }
-        if (nameA > nameB) {
+        if (courseA > courseB) {
             return 1;
         }
-        // names must be equal
         return 0;
     });
     viewAllGrades(data);
@@ -116,12 +117,12 @@ sortCoursesBtn.addEventListener('click', event => {
 sortGradesBtn.addEventListener('click', event => {
     event.preventDefault();
     data.sort(function (a, b) {
-        var nameA = a.grade.toString().toUpperCase(); // ignore upper and lowercase
-        var nameB = b.grade.toString().toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
+        var gradeA = a.grade.toString().toUpperCase(); // ignore upper and lowercase
+        var gradeB = b.grade.toString().toUpperCase(); // ignore upper and lowercase
+        if (gradeA < gradeB) {
             return -1;
         }
-        if (nameA > nameB) {
+        if (gradeA > gradeB) {
             return 1;
         }
         // names must be equal

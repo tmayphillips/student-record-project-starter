@@ -1,9 +1,16 @@
 body {
-    background: url(gradebook.jpeg) no-repeat center center fixed;
+    background: url(student-grades-background.png) no-repeat center center fixed;
     background-size: cover;
     background-color: black;
 }
 
+.header {
+  height: 20vh;
+}
+
+.header h1 {
+  opacity: 0;
+}
 
 .modal {
     display: none; 
@@ -59,6 +66,7 @@ body {
     height: 50px;
     font: 1em 'El Messiri', sans-serif;
     cursor: pointer;
+    border-radius: 2em;
 }
 
 .btn:active {
@@ -76,20 +84,26 @@ body {
     display: none;
 }
 
+.table-font {
+  font: 1.5em 'PT Sans', sans-serif;
+}
+
 .align-table {
-    text-align: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
 
 table {
     table-layout: fixed;
     width: 90%;
-    border: 3px solid purple;
+    border: 3px solid rgba(47,79,79);
     background: rgba(255, 255, 255, 0.8);
   }
   
   thead th:nth-child(1) {
-    width: 40%;
+    width: 30%;
   }
   
   thead th:nth-child(2) {
@@ -97,13 +111,20 @@ table {
   }
   
   thead th:nth-child(3) {
-    width: 15%;
+    width: 12%;
   }
   
   thead th:nth-child(4) {
-    width: 15%;
+    width: 12%;
+  }
+
+  thead th:nth-child(5) {
+    width: 8%;
   }
   
+  thead th:nth-child(6) {
+    width: 8%;
+  }
   th, td {
     padding: 20px;
   }
@@ -125,4 +146,8 @@ table {
   .header {
       text-align: center;
       font-size: 40px
+  }
+
+  .table-btn {
+    width: 50px;
   }
